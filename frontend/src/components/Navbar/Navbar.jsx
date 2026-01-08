@@ -157,12 +157,13 @@ const Navbar = () => {
             className="navbar__cta"
             aria-label="Prendre rendez-vous avec un thérapeute"
           >
-            Rendez-vous
+            Prendre RDV
           </Link>
           <Link
             to="/mon-compte"
             className="navbar__account"
             aria-label="Accéder à mon compte"
+            S
           >
             <i className="fas fa-user" aria-hidden="true"></i>
             <span className="visually-hidden">Mon compte</span>

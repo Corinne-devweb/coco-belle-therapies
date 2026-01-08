@@ -2,6 +2,10 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
+import LegalNotice from "./pages/LegalNotice/LegalNotice";
+import PrivacyPolicy from "./pages/PrivacyPolicy/PrivacyPolicy";
+import CookiesPolicy from "./pages/CookiesPolicy/CookiesPolicy";
+import Sitemap from "./pages/Sitemap/Sitemap";
 
 function App() {
   return (
@@ -131,46 +135,14 @@ function App() {
               }
             />
 
-            {/* Pages légales */}
-            <Route
-              path="/mentions-legales"
-              element={
-                <div style={{ padding: "3rem 1rem", minHeight: "70vh" }}>
-                  <h1>Mentions légales</h1>
-                  <p>Page en cours de construction...</p>
-                </div>
-              }
-            />
-
-            <Route
-              path="/plan-du-site"
-              element={
-                <div style={{ padding: "3rem 1rem", minHeight: "70vh" }}>
-                  <h1>Plan du site</h1>
-                  <p>Page en cours de construction...</p>
-                </div>
-              }
-            />
-
-            <Route
-              path="/gestion-cookies"
-              element={
-                <div style={{ padding: "3rem 1rem", minHeight: "70vh" }}>
-                  <h1>Gestion des cookies</h1>
-                  <p>Page en cours de construction...</p>
-                </div>
-              }
-            />
-
+            {/* Pages légales - TOUTES CRÉÉES */}
+            <Route path="/mentions-legales" element={<LegalNotice />} />
             <Route
               path="/politique-confidentialite"
-              element={
-                <div style={{ padding: "3rem 1rem", minHeight: "70vh" }}>
-                  <h1>Politique de confidentialité</h1>
-                  <p>Page en cours de construction...</p>
-                </div>
-              }
+              element={<PrivacyPolicy />}
             />
+            <Route path="/gestion-cookies" element={<CookiesPolicy />} />
+            <Route path="/plan-du-site" element={<Sitemap />} />
 
             {/* Page 404 */}
             <Route
@@ -192,6 +164,7 @@ function App() {
                   <p style={{ marginTop: "1rem" }}>
                     Désolé, la page que vous recherchez n'existe pas.
                   </p>
+
                   <a
                     href="/"
                     style={{
