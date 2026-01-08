@@ -38,8 +38,13 @@ $line-height-relaxed: 1.8;
 // COULEURS
 // ============================================
 
-$primary-color: #4A90E2;
-$secondary-color: #F5A623;
+// Palette du logo
+$primary-color: #2A7A73;        // Vert profond (pour navbar et liens)
+$primary-color-dark: #1f5c56;   // Vert encore plus foncé (hover)
+$primary-color-light: #e1f0ef;  // Vert très clair (backgrounds)
+
+$secondary-color: #4ECDC4;      // Vert d'eau clair (optionnel pour accents)
+
 $text-primary: #1a1a1a;
 $text-secondary: #555555;
 $text-light: #777777;
@@ -47,9 +52,9 @@ $bg-light: #ffffff;
 $bg-grey: #f8f9fa;
 
 // Liens
-$link-color: #0056b3;
-$link-hover: #003d82;
-$focus-outline: #0056b3;
+$link-color: $primary-color;         // Vert profond
+$link-hover: $primary-color-dark;    // Vert très foncé au survol
+$focus-outline: $primary-color;
 
 // ============================================
 // BREAKPOINTS

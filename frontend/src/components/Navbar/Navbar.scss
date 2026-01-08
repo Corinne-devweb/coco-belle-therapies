@@ -1,0 +1,281 @@
+// src/components/Navbar/Navbar.scss
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: white; // Fond blanc
+  padding: 0.75rem 1rem; // Padding réduit sur mobile
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+  @include respond-to('tablet') {
+    padding: 1rem; // Padding normal sur tablette+
+  }
+
+  // État scrollé
+  &--scrolled {
+    padding: 0.5rem 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+    .navbar__logo-img {
+      height: 30px; // Plus petit quand scrollé sur mobile
+
+      @include respond-to('mobile') {
+        height: 35px;
+      }
+
+      @include respond-to('tablet') {
+        height: 40px;
+      }
+
+      @include respond-to('desktop') {
+        height: 50px;
+      }
+    }
+  }
+
+  // Container
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  // Logo
+  &__logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    z-index: 1001;
+
+    &-img {
+      height: 35px; // Plus petit sur mobile
+      width: auto;
+      transition: height 0.3s ease;
+
+      @include respond-to('mobile') {
+        height: 40px;
+      }
+
+      @include respond-to('tablet') {
+        height: 50px;
+      }
+
+      @include respond-to('desktop') {
+        height: 60px;
+      }
+    }
+
+    &:focus {
+      outline: 3px solid $primary-color;
+      outline-offset: 4px;
+      border-radius: 4px;
+    }
+  }
+
+  // Menu burger - Mobile uniquement
+  &__burger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+
+    @include respond-to('tablet-landscape') {
+      display: none;
+    }
+
+    &-line {
+      width: 100%;
+      height: 3px;
+      background-color: $primary-color; // Lignes vertes
+      transition: all 0.3s ease;
+      border-radius: 2px;
+    }
+
+    // Animation burger → X
+    &[aria-expanded="true"] {
+      .navbar__burger-line {
+        &:nth-child(1) {
+          transform: rotate(45deg) translateY(10px);
+        }
+        &:nth-child(2) {
+          opacity: 0;
+        }
+        &:nth-child(3) {
+          transform: rotate(-45deg) translateY(-10px);
+        }
+      }
+    }
+
+    &:focus {
+      outline: 3px solid $primary-color;
+      outline-offset: 4px;
+    }
+  }
+
+  // Menu de navigation
+  &__menu {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    margin: 0;
+    padding: 2rem 1rem;
+    gap: 1.5rem;
+
+    // Mobile : menu en overlay
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: white; // Fond blanc sur mobile aussi
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    overflow-y: auto;
+
+    @include respond-to('tablet-landscape') {
+      // Desktop : menu horizontal
+      position: static;
+      flex-direction: row;
+      padding: 0;
+      gap: 2rem;
+      transform: none;
+      background-color: transparent;
+      overflow-y: visible;
+    }
+
+    // État ouvert (mobile)
+    &--open {
+      transform: translateX(0);
+    }
+
+    li {
+      margin: 0;
+    }
+
+    a {
+      display: block;
+      padding: 0.75rem 1rem;
+      
+      // Oswald 400 pour la navbar
+      @include navbar-text;
+      font-size: 1.125rem;
+      text-transform: uppercase;
+      
+      color: $primary-color; // Texte vert profond
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border-radius: 4px;
+
+      @include respond-to('tablet-landscape') {
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+      }
+
+      &:hover,
+      &:focus {
+        color: white;
+        background-color: $primary-color; // Fond vert au hover
+      }
+
+      &:focus {
+        outline: 3px solid $primary-color;
+        outline-offset: 2px;
+      }
+
+      // Lien actif
+      &.active {
+        color: white;
+        font-weight: $font-weight-semibold;
+        background-color: $primary-color; // Fond vert pour lien actif
+      }
+    }
+  }
+
+  // Actions (Rendez-vous + compte)
+  &__actions {
+    display: none;
+
+    @include respond-to('tablet-landscape') {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+  }
+
+  &__cta {
+    padding: 0.75rem 1.5rem;
+    @include navbar-text;
+    font-size: 1rem;
+    text-transform: uppercase;
+    white-space: nowrap;
+    background-color: $primary-color; // Fond vert
+    color: white; // Texte blanc
+    border: 2px solid $primary-color;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+
+    &:hover,
+    &:focus {
+      background-color: $primary-color-dark; // Vert plus foncé au hover
+      border-color: $primary-color-dark;
+      color: white;
+    }
+
+    &:focus {
+      outline: 3px solid $primary-color;
+      outline-offset: 2px;
+    }
+  }
+
+  &__account {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba($primary-color, 0.1); // Fond vert très clair
+    color: $primary-color; // Icône verte
+    text-decoration: none;
+    transition: all 0.3s ease;
+
+    &:hover,
+    &:focus {
+      background-color: $primary-color; // Fond vert au hover
+      color: white; // Icône blanche
+    }
+
+    &:focus {
+      outline: 3px solid $primary-color;
+      outline-offset: 2px;
+    }
+  }
+}
+
+// Ajuster le contenu pour compenser la navbar fixe
+.main-content {
+  padding-top: 70px; // Réduit pour mobile
+
+  @include respond-to('tablet') {
+    padding-top: 80px;
+  }
+
+  @include respond-to('desktop') {
+    padding-top: 90px;
+  }
+}

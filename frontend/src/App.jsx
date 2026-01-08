@@ -1,5 +1,6 @@
 // src/App.jsx
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar/Navbar";
 
 function App() {
   return (
@@ -10,34 +11,23 @@ function App() {
           Aller au contenu principal
         </a>
 
-        {/* Header temporaire */}
-        <header
-          style={{
-            padding: "2rem",
-            background: "#1a1a1a",
-            color: "white",
-            textAlign: "center",
-          }}
-        >
-          <h1>Coco Belle Therapies</h1>
-          <p>Site en construction...</p>
-        </header>
+        {/* Navbar */}
+        <Navbar />
 
         {/* Contenu principal */}
-        <main
-          id="main-content"
-          style={{
-            minHeight: "60vh",
-            padding: "3rem 1rem",
-            textAlign: "center",
-          }}
-        >
+        <main id="main-content" className="main-content">
           <Routes>
             <Route
               path="/"
               element={
-                <div>
-                  <h2>Bienvenue sur Coco Belle Therapies</h2>
+                <div
+                  style={{
+                    padding: "3rem 1rem",
+                    textAlign: "center",
+                    minHeight: "70vh",
+                  }}
+                >
+                  <h1>Bienvenue sur Coco Belle Therapies</h1>
                   <p>Accompagnement TDAH et Hypnose thérapeutique</p>
                   <p style={{ marginTop: "2rem", color: "#555" }}>
                     Le site est en cours de développement...
