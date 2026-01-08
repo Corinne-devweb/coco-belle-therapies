@@ -1,6 +1,7 @@
 // src/App.jsx
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         {/* Contenu principal */}
         <main id="main-content" className="main-content">
           <Routes>
+            {/* Page d'accueil */}
             <Route
               path="/"
               element={
@@ -25,30 +27,193 @@ function App() {
                     padding: "3rem 1rem",
                     textAlign: "center",
                     minHeight: "70vh",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                    alignItems: "center",
                   }}
                 >
                   <h1>Bienvenue sur Coco Belle Therapies</h1>
-                  <p>Accompagnement TDAH et Hypnose thérapeutique</p>
-                  <p style={{ marginTop: "2rem", color: "#555" }}>
+                  <p style={{ fontSize: "1.25rem", marginTop: "1rem" }}>
+                    Accompagnement TDAH et Hypnose thérapeutique
+                  </p>
+                  <p
+                    style={{
+                      marginTop: "2rem",
+                      color: "#555",
+                      fontStyle: "italic",
+                    }}
+                  >
                     Le site est en cours de développement...
                   </p>
+                </div>
+              }
+            />
+
+            {/* Pages à créer */}
+            <Route
+              path="/qui-suis-je"
+              element={
+                <div style={{ padding: "3rem 1rem", minHeight: "70vh" }}>
+                  <h1>Qui suis-je</h1>
+                  <p>Page en cours de construction...</p>
+                </div>
+              }
+            />
+
+            <Route
+              path="/mes-approches"
+              element={
+                <div style={{ padding: "3rem 1rem", minHeight: "70vh" }}>
+                  <h1>Mes approches</h1>
+                  <p>Page en cours de construction...</p>
+                </div>
+              }
+            />
+
+            <Route
+              path="/tdah"
+              element={
+                <div style={{ padding: "3rem 1rem", minHeight: "70vh" }}>
+                  <h1>TDAH</h1>
+                  <p>Page en cours de construction...</p>
+                </div>
+              }
+            />
+
+            <Route
+              path="/hypnose"
+              element={
+                <div style={{ padding: "3rem 1rem", minHeight: "70vh" }}>
+                  <h1>Hypnose</h1>
+                  <p>Page en cours de construction...</p>
+                </div>
+              }
+            />
+
+            <Route
+              path="/blog"
+              element={
+                <div style={{ padding: "3rem 1rem", minHeight: "70vh" }}>
+                  <h1>Blog</h1>
+                  <p>Page en cours de construction...</p>
+                </div>
+              }
+            />
+
+            <Route
+              path="/contact"
+              element={
+                <div style={{ padding: "3rem 1rem", minHeight: "70vh" }}>
+                  <h1>Contact</h1>
+                  <p>Page en cours de construction...</p>
+                </div>
+              }
+            />
+
+            <Route
+              path="/rendez-vous"
+              element={
+                <div style={{ padding: "3rem 1rem", minHeight: "70vh" }}>
+                  <h1>Prendre rendez-vous</h1>
+                  <p>Page en cours de construction...</p>
+                </div>
+              }
+            />
+
+            <Route
+              path="/mon-compte"
+              element={
+                <div style={{ padding: "3rem 1rem", minHeight: "70vh" }}>
+                  <h1>Mon compte</h1>
+                  <p>Page en cours de construction...</p>
+                </div>
+              }
+            />
+
+            {/* Pages légales */}
+            <Route
+              path="/mentions-legales"
+              element={
+                <div style={{ padding: "3rem 1rem", minHeight: "70vh" }}>
+                  <h1>Mentions légales</h1>
+                  <p>Page en cours de construction...</p>
+                </div>
+              }
+            />
+
+            <Route
+              path="/plan-du-site"
+              element={
+                <div style={{ padding: "3rem 1rem", minHeight: "70vh" }}>
+                  <h1>Plan du site</h1>
+                  <p>Page en cours de construction...</p>
+                </div>
+              }
+            />
+
+            <Route
+              path="/gestion-cookies"
+              element={
+                <div style={{ padding: "3rem 1rem", minHeight: "70vh" }}>
+                  <h1>Gestion des cookies</h1>
+                  <p>Page en cours de construction...</p>
+                </div>
+              }
+            />
+
+            <Route
+              path="/politique-confidentialite"
+              element={
+                <div style={{ padding: "3rem 1rem", minHeight: "70vh" }}>
+                  <h1>Politique de confidentialité</h1>
+                  <p>Page en cours de construction...</p>
+                </div>
+              }
+            />
+
+            {/* Page 404 */}
+            <Route
+              path="*"
+              element={
+                <div
+                  style={{
+                    padding: "3rem 1rem",
+                    minHeight: "70vh",
+                    textAlign: "center",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <h1 style={{ fontSize: "4rem", color: "#2A7A73" }}>404</h1>
+                  <h2>Page non trouvée</h2>
+                  <p style={{ marginTop: "1rem" }}>
+                    Désolé, la page que vous recherchez n'existe pas.
+                  </p>
+                  <a
+                    href="/"
+                    style={{
+                      marginTop: "2rem",
+                      padding: "0.75rem 1.5rem",
+                      backgroundColor: "#2A7A73",
+                      color: "white",
+                      textDecoration: "none",
+                      borderRadius: "4px",
+                      fontWeight: "500",
+                    }}
+                  >
+                    Retour à l'accueil
+                  </a>
                 </div>
               }
             />
           </Routes>
         </main>
 
-        {/* Footer temporaire */}
-        <footer
-          style={{
-            padding: "2rem",
-            background: "#1a1a1a",
-            color: "white",
-            textAlign: "center",
-          }}
-        >
-          <p>© 2025 Coco Belle Therapies - Tous droits réservés</p>
-        </footer>
+        {/* Footer */}
+        <Footer />
       </div>
     </BrowserRouter>
   );
