@@ -1,0 +1,11 @@
+// src/styles/main.scss
+
+// 1. Variables et mixins
+@import 'variables';
+@import 'mixins';
+
+// 2. Typographie
+@import 'typography';
+
+// 3. Bootstrap
+@import 'bootstrap/scss/bootstrap';

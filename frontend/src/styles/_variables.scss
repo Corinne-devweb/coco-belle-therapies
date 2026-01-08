@@ -1,0 +1,65 @@
+// src/styles/_variables.scss
+
+// ============================================
+// TYPOGRAPHIE
+// ============================================
+
+$font-primary: 'Oswald', sans-serif;
+$font-fallback: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+
+// Graisses
+$font-weight-light: 300;      // Corps de texte
+$font-weight-regular: 400;    // Navbar et titres
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+// Tailles
+$font-size-base: 1rem;
+
+// Mobile
+$font-size-h1-mobile: 2rem;
+$font-size-h2-mobile: 1.75rem;
+$font-size-h3-mobile: 1.5rem;
+$font-size-body-mobile: 1rem;
+
+// Desktop
+$font-size-h1-desktop: 3rem;
+$font-size-h2-desktop: 2.5rem;
+$font-size-h3-desktop: 2rem;
+$font-size-body-desktop: 1.125rem;
+
+// Hauteurs de ligne
+$line-height-tight: 1.2;
+$line-height-normal: 1.5;
+$line-height-relaxed: 1.8;
+
+// ============================================
+// COULEURS
+// ============================================
+
+$primary-color: #4A90E2;
+$secondary-color: #F5A623;
+$text-primary: #1a1a1a;
+$text-secondary: #555555;
+$text-light: #777777;
+$bg-light: #ffffff;
+$bg-grey: #f8f9fa;
+
+// Liens
+$link-color: #0056b3;
+$link-hover: #003d82;
+$focus-outline: #0056b3;
+
+// ============================================
+// BREAKPOINTS
+// ============================================
+
+$breakpoints: (
+  'mobile-small': 320px,
+  'mobile': 576px,
+  'tablet': 768px,
+  'tablet-landscape': 992px,
+  'desktop': 1200px,
+  'desktop-large': 1400px
+);
