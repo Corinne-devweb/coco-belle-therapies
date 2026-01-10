@@ -2,6 +2,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
+import Home from "./pages/Home/Home";
 import LegalNotice from "./pages/LegalNotice/LegalNotice";
 import PrivacyPolicy from "./pages/PrivacyPolicy/PrivacyPolicy";
 import CookiesPolicy from "./pages/CookiesPolicy/CookiesPolicy";
@@ -23,36 +24,7 @@ function App() {
         <main id="main-content" className="main-content">
           <Routes>
             {/* Page d'accueil */}
-            <Route
-              path="/"
-              element={
-                <div
-                  style={{
-                    padding: "3rem 1rem",
-                    textAlign: "center",
-                    minHeight: "70vh",
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                >
-                  <h1>Bienvenue sur Coco Belle Therapies</h1>
-                  <p style={{ fontSize: "1.25rem", marginTop: "1rem" }}>
-                    Accompagnement TDAH et Hypnose thérapeutique
-                  </p>
-                  <p
-                    style={{
-                      marginTop: "2rem",
-                      color: "#555",
-                      fontStyle: "italic",
-                    }}
-                  >
-                    Le site est en cours de développement...
-                  </p>
-                </div>
-              }
-            />
+            <Route path="/" element={<Home />} />
 
             {/* Pages à créer */}
             <Route
