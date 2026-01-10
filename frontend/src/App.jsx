@@ -4,6 +4,9 @@ import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import Home from "./pages/Home/Home";
 import About from "./pages/About/About";
+import Approaches from "./pages/Approaches/Approaches";
+import ADHD from "./pages/ADHD/ADHD";
+import Contact from "./pages/Contact/Contact";
 import LegalNotice from "./pages/LegalNotice/LegalNotice";
 import PrivacyPolicy from "./pages/PrivacyPolicy/PrivacyPolicy";
 import CookiesPolicy from "./pages/CookiesPolicy/CookiesPolicy";
@@ -30,27 +33,16 @@ function App() {
             {/* Page Qui suis-je */}
             <Route path="/qui-suis-je" element={<About />} />
 
+            {/* Page Mes approches */}
+            <Route path="/mes-approches" element={<Approaches />} />
+
+            {/* Page TDAH */}
+            <Route path="/tdah" element={<ADHD />} />
+
+            {/* Page Contact */}
+            <Route path="/contact" element={<Contact />} />
+
             {/* Pages à créer */}
-            <Route
-              path="/mes-approches"
-              element={
-                <div style={{ padding: "3rem 1rem", minHeight: "70vh" }}>
-                  <h1>Mes approches</h1>
-                  <p>Page en cours de construction...</p>
-                </div>
-              }
-            />
-
-            <Route
-              path="/tdah"
-              element={
-                <div style={{ padding: "3rem 1rem", minHeight: "70vh" }}>
-                  <h1>TDAH</h1>
-                  <p>Page en cours de construction...</p>
-                </div>
-              }
-            />
-
             <Route
               path="/hypnose"
               element={
@@ -66,16 +58,6 @@ function App() {
               element={
                 <div style={{ padding: "3rem 1rem", minHeight: "70vh" }}>
                   <h1>Blog</h1>
-                  <p>Page en cours de construction...</p>
-                </div>
-              }
-            />
-
-            <Route
-              path="/contact"
-              element={
-                <div style={{ padding: "3rem 1rem", minHeight: "70vh" }}>
-                  <h1>Contact</h1>
                   <p>Page en cours de construction...</p>
                 </div>
               }
