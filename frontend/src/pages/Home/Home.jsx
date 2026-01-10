@@ -36,8 +36,9 @@ const Home = () => {
               et la sérénité
             </h1>
             <p className="hero__subtitle">
-              Accompagnement personnalisé pour adultes anglophones avec TDAH et
-              hypnose thérapeutique
+              Accompagnement personnalisé pour adultes anglophones avec TDAH,
+              basé sur l'ACT, avec possibilité d'hypnose thérapeutique pour un
+              travail plus en profondeur
             </p>
             <div className="hero__cta">
               <Link to="/rendez-vous" className="btn btn--primary">
@@ -76,11 +77,11 @@ const Home = () => {
                 <strong>
                   meilleure concentration, un équilibre émotionnel durable{" "}
                 </strong>{" "}
-                et un bien-être en accord avec vos valeurs — avec une expertise
+                et un bien-être en accord avec vos valeurs, avec une expertise
                 particulière dans l'accompagnement des{" "}
                 <strong>
-                  adultes avec TDAH (trouble du déficit de l'attention avec ou
-                  sans hyperactivité)
+                  adultes avec un TDAH (trouble du déficit de l'attention avec
+                  ou sans hyperactivité)
                 </strong>
                 .
               </p>
@@ -168,7 +169,7 @@ const Home = () => {
               <div className="step__number">1</div>
               <h3 className="step__title">Premier Contact</h3>
               <p className="step__description">
-                Discussion gratuite de 15 minutes pour comprendre vos besoins et
+                Discussion gratuite de 20 minutes pour comprendre vos besoins et
                 voir si nous sommes faits pour travailler ensemble.
               </p>
             </div>
@@ -279,7 +280,7 @@ const Home = () => {
               Prêt(e) à commencer votre parcours ?
             </h2>
             <p className="cta-section__text">
-              Réservez votre consultation gratuite de 15 minutes dès aujourd'hui
+              Réservez votre consultation gratuite de 20 minutes dès aujourd'hui
             </p>
             <div className="cta-section__buttons">
               <Link to="/rendez-vous" className="btn btn--primary btn--large">

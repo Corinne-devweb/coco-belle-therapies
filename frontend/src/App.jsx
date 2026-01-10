@@ -6,6 +6,8 @@ import Home from "./pages/Home/Home";
 import About from "./pages/About/About";
 import Approaches from "./pages/Approaches/Approaches";
 import ADHD from "./pages/ADHD/ADHD";
+import Hypnotherapy from "./pages/Hypnotherapy/Hypnotherapy";
+import Booking from "./pages/Booking/Booking";
 import Contact from "./pages/Contact/Contact";
 import LegalNotice from "./pages/LegalNotice/LegalNotice";
 import PrivacyPolicy from "./pages/PrivacyPolicy/PrivacyPolicy";
@@ -39,35 +41,21 @@ function App() {
             {/* Page TDAH */}
             <Route path="/tdah" element={<ADHD />} />
 
+            {/* Page Hypnose */}
+            <Route path="/hypnose" element={<Hypnotherapy />} />
+
+            {/* Page Rendez-vous */}
+            <Route path="/rendez-vous" element={<Booking />} />
+
             {/* Page Contact */}
             <Route path="/contact" element={<Contact />} />
 
             {/* Pages à créer */}
             <Route
-              path="/hypnose"
-              element={
-                <div style={{ padding: "3rem 1rem", minHeight: "70vh" }}>
-                  <h1>Hypnose</h1>
-                  <p>Page en cours de construction...</p>
-                </div>
-              }
-            />
-
-            <Route
               path="/blog"
               element={
                 <div style={{ padding: "3rem 1rem", minHeight: "70vh" }}>
                   <h1>Blog</h1>
-                  <p>Page en cours de construction...</p>
-                </div>
-              }
-            />
-
-            <Route
-              path="/rendez-vous"
-              element={
-                <div style={{ padding: "3rem 1rem", minHeight: "70vh" }}>
-                  <h1>Prendre rendez-vous</h1>
                   <p>Page en cours de construction...</p>
                 </div>
               }

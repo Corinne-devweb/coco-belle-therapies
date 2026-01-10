@@ -102,14 +102,14 @@ const About = () => {
                   ans, après avoir été témoin d'un accident de voiture mortel et
                   avoir reçu un diagnostic de{" "}
                   <strong>TSPT (Trouble de Stress Post-Traumatique)</strong>.
-                  L'anxiété a pris le contrôle de ma vie — je peinais à sortir
-                  de chez moi, à passer mes examens, ou même à faire la queue
-                  dans un magasin.
+                  L'anxiété a pris le contrôle de ma vie, je peinais à sortir de
+                  chez moi, à passer mes examens, ou même à faire la queue dans
+                  un magasin.
                 </p>
                 <p className="timeline-item__text">
                   La thérapie traditionnelle ne me convenait pas à l'époque,
-                  alors j'ai commencé à apprendre ce qui se passait dans mon
-                  esprit et mon corps de manière pratique et concrète.
+                  j'ai donc cherché à comprendre ce qui se passait dans mon
+                  esprit et dans mon corps de manière pratique et concrète.
                 </p>
               </div>
             </div>
@@ -122,9 +122,10 @@ const About = () => {
               <div className="timeline-item__content">
                 <h3 className="timeline-item__title">La découverte de l'ACT</h3>
                 <p className="timeline-item__text">
-                  En explorant le trauma, le système nerveux, la mindfulness et
-                  notre relation à l'adversité, je me suis également appuyée sur
-                  la sagesse sans détour de ma grand-mère :
+                  En parallèle de mes recherches sur les traumatismes, le
+                  système nerveux, la pleine conscience et la manière dont nous
+                  faisons face à l’adversité, je me suis appuyée sur une sagesse
+                  simple transmise par ma grand-mère :
                   <em>
                     "La vie est dure, ma chérie — parfois, il faut simplement
                     choisir d'être forte"
@@ -133,8 +134,10 @@ const About = () => {
                 </p>
                 <p className="timeline-item__text">
                   J'ai ensuite découvert les principes de la{" "}
-                  <strong>Thérapie d'Acceptation et d'Engagement (ACT)</strong>
-                  qui semblaient réunir tout ce qui précède, et m'ont aidée à me
+                  <strong>
+                    Thérapie d'Acceptation et d'Engagement (ACT),{" "}
+                  </strong>
+                  qui semblaient réunir tout ce qui précède et m'ont aidée à me
                   reconstruire, doucement et de manière réaliste.
                 </p>
               </div>
@@ -150,16 +153,18 @@ const About = () => {
                 <p className="timeline-item__text">
                   Avec le temps, la curiosité a remplacé la peur. J'ai poursuivi
                   des études en
-                  <strong> anthropologie médicale et en psychologie</strong>, en
-                  recherchant sur le TSPT et la résilience.
+                  <strong> anthropologie médicale et en psychologie</strong>,
+                  concentrant mes recherches sur le trouble de stress
+                  post-traumatique (TSPT) et la résilience.
                 </p>
                 <p className="timeline-item__text">
-                  J'ai interviewé des survivants de l'ouragan Katrina sur le
-                  rétablissement, la force intérieure, et l'importance de la
-                  façon dont nous choisissons de traiter ce qui nous arrive.
-                  J'étais particulièrement intéressée par la manière dont les
-                  perspectives zen bouddhistes pouvaient aider les individus à
-                  trouver le calme face à l'adversité.
+                  J'ai interviewé des survivants de l'ouragan Katrina au sujet
+                  de leur rétablissement, de leur force intérieure et de
+                  l'importance de la façon dont nous choisissons de traiter les
+                  événements extérieurs qui nous impactent. Je me suis
+                  particulièrement intéressée à la manière dont les perspectives
+                  zen bouddhistes pouvaient aider les individus à trouver le
+                  calme face à l'adversité.
                 </p>
               </div>
             </div>
@@ -172,13 +177,11 @@ const About = () => {
               <div className="timeline-item__content">
                 <h3 className="timeline-item__title">Découverte du TDAH</h3>
                 <p className="timeline-item__text">
-                  En cours de route, le{" "}
-                  <strong>
-                    TDAH a été évoqué comme une possibilité pour moi
-                  </strong>
-                  (possiblement AuDHD — autisme + TDAH), et soudain, comprendre
-                  les traits du TDAH a donné un sens à de nombreuses difficultés
-                  que je vivais depuis toujours.
+                  Au fil du chemin, il a été suggéré que je puisse avoir un{" "}
+                  <strong>TDAH (possiblement AuDHD — autisme + TDAH).</strong>
+                  Comprendre ces traits m'a soudain permis de mettre des mots
+                  sur de nombreuses difficultés qui m'accompagnaient depuis
+                  toujours.
                 </p>
               </div>
             </div>
