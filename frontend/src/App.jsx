@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import Home from "./pages/Home/Home";
+import About from "./pages/About/About";
 import LegalNotice from "./pages/LegalNotice/LegalNotice";
 import PrivacyPolicy from "./pages/PrivacyPolicy/PrivacyPolicy";
 import CookiesPolicy from "./pages/CookiesPolicy/CookiesPolicy";
@@ -26,17 +27,10 @@ function App() {
             {/* Page d'accueil */}
             <Route path="/" element={<Home />} />
 
-            {/* Pages à créer */}
-            <Route
-              path="/qui-suis-je"
-              element={
-                <div style={{ padding: "3rem 1rem", minHeight: "70vh" }}>
-                  <h1>Qui suis-je</h1>
-                  <p>Page en cours de construction...</p>
-                </div>
-              }
-            />
+            {/* Page Qui suis-je */}
+            <Route path="/qui-suis-je" element={<About />} />
 
+            {/* Pages à créer */}
             <Route
               path="/mes-approches"
               element={
