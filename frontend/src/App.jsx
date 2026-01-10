@@ -2,12 +2,16 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
+import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import Home from "./pages/Home/Home";
 import About from "./pages/About/About";
 import Approaches from "./pages/Approaches/Approaches";
 import ADHD from "./pages/ADHD/ADHD";
 import Hypnotherapy from "./pages/Hypnotherapy/Hypnotherapy";
 import Booking from "./pages/Booking/Booking";
+import Account from "./pages/Account/Account";
+import Login from "./pages/Login/Login";
+import Register from "./pages/Register/Register";
 import Contact from "./pages/Contact/Contact";
 import LegalNotice from "./pages/LegalNotice/LegalNotice";
 import PrivacyPolicy from "./pages/PrivacyPolicy/PrivacyPolicy";
@@ -47,6 +51,22 @@ function App() {
             {/* Page Rendez-vous */}
             <Route path="/rendez-vous" element={<Booking />} />
 
+            {/* Page Mon Compte - PROTÉGÉE */}
+            <Route
+              path="/mon-compte"
+              element={
+                <ProtectedRoute>
+                  <Account />
+                </ProtectedRoute>
+              }
+            />
+
+            {/* Page Connexion */}
+            <Route path="/connexion" element={<Login />} />
+
+            {/* Page Inscription */}
+            <Route path="/inscription" element={<Register />} />
+
             {/* Page Contact */}
             <Route path="/contact" element={<Contact />} />
 
@@ -62,10 +82,10 @@ function App() {
             />
 
             <Route
-              path="/mon-compte"
+              path="/mot-de-passe-oublie"
               element={
                 <div style={{ padding: "3rem 1rem", minHeight: "70vh" }}>
-                  <h1>Mon compte</h1>
+                  <h1>Mot de passe oublié</h1>
                   <p>Page en cours de construction...</p>
                 </div>
               }
