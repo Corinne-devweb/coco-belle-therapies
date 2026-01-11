@@ -93,14 +93,14 @@ const ADHD = () => {
               </h2>
               <p>
                 La <strong>Thérapie d'Acceptation et d'Engagement (ACT)</strong>{" "}
-                est une approche bienveillante et fondée sur des preuves qui
-                vous aide à :
+                est une approche bienveillante et fondée sur des données
+                scientifiques qui vous aide à :
               </p>
               <ul className="act-list">
                 <li>
                   <span className="act-list__icon">✓</span>
                   <span>
-                    Remarquer et accepter les pensées et émotions difficiles
+                    Identifier et accepter les pensées et émotions difficiles
                     sans vous y enliser
                   </span>
                 </li>
@@ -113,8 +113,7 @@ const ADHD = () => {
                 <li>
                   <span className="act-list__icon">✓</span>
                   <span>
-                    Prendre des actions petites et cohérentes vers des objectifs
-                    significatifs
+                    Avancer par petites étapes régulières vers vos objectifs
                   </span>
                 </li>
               </ul>
@@ -171,7 +170,7 @@ const ADHD = () => {
               mon TDAH. J'ai appris à travailler avec mon cerveau, pas contre
               lui."
             </blockquote>
-            <cite className="quote-box__author">— Client, Royaume-Uni</cite>
+            <cite className="quote-box__author"> Client, Royaume-Uni</cite>
           </div>
         </div>
       </section>

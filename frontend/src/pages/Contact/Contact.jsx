@@ -183,7 +183,7 @@ const Contact = () => {
             <div className="contact-method">
               <div className="contact-method__icon">🎁</div>
               <h3 className="contact-method__title">Consultation gratuite</h3>
-              <p className="contact-method__link">15 minutes offertes</p>
+              <p className="contact-method__link">20 minutes offertes</p>
               <p className="contact-method__text">
                 Pour faire connaissance et discuter de vos besoins
               </p>
@@ -441,7 +441,7 @@ const Contact = () => {
                 🎁 La consultation est-elle vraiment gratuite ?
               </h3>
               <p className="faq-item__answer">
-                Oui ! La première consultation de 15 minutes est offerte et sans
+                Oui ! La première consultation de 20 minutes est offerte et sans
                 engagement. C'est l'occasion de faire connaissance et de
                 discuter de vos besoins.
               </p>

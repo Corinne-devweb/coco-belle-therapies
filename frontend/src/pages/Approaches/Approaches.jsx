@@ -202,7 +202,7 @@ const Approaches = () => {
             <h2 className="approaches-cta__title">Prêt(e) à commencer ?</h2>
             <p className="approaches-cta__text">
               Contactez-moi pour réserver votre première consultation gratuite
-              de 15 minutes
+              de 20 minutes
             </p>
 
             <div className="contact-options">

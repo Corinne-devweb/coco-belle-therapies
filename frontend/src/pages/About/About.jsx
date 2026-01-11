@@ -22,20 +22,39 @@ const About = () => {
   ];
 
   const professionalTraining = [
-    "Diplôme en Hypnothérapie Clinique basée sur la Mindfulness",
-    "Hypnothérapie Comportementale Cognitive",
-    "Programmation Neuro-Linguistique (PNL)",
-    "Counseling axé sur les Solutions",
-    "Formation de Professeur de Mindfulness",
-    "Thérapie Cognitive basée sur la Mindfulness (MBCT)",
-    "Réduction du Stress basée sur la Mindfulness (MBSR)",
-    "Accompagnement du Cancer basé sur la Mindfulness",
-    "Sensibilisation à la Santé Mentale",
-    "Coaching TDAH",
-    "Thérapie d'Acceptation et d'Engagement (ACT)",
-    "Formation avec Daniel Morgan & Stephen Hayes",
-    "ACT pour le TDAH - Rus Harris",
-    "Niveau 3 - Personal Training",
+    {
+      title: "Diplôme en Hypnothérapie Clinique basée sur la pleine conscience",
+      details:
+        "Hypnothérapie cognitivo-comportementale, Programmation Neuro-Linguistique (PNL), Accompagnement centré sur les Solutions",
+    },
+    {
+      title: "Formation d'enseignant en pleine conscience",
+      details:
+        "Thérapie Cognitive basée sur la pleine conscience (MBCT), Réduction du Stress - Approche thérapeutique basée sur la pleine conscience (MBSR)",
+    },
+    {
+      title:
+        "Accompagnement psychologique rétablissement après le cancer par la pleine conscience",
+      details: null,
+    },
+    {
+      title: "Sensibilisation à la Santé Mentale",
+      details: null,
+    },
+    {
+      title: "Coaching TDAH",
+      details: null,
+    },
+    {
+      title: "Thérapie d'Acceptation et d'Engagement (ACT)",
+      subtitle:
+        "Formation avec Daniel Morgan & Stephen Hayes - ACT pour le TDAH - Rus Harris",
+      details: null,
+    },
+    {
+      title: "Coach Sportif Personnel (niveau 3)",
+      details: null,
+    },
   ];
 
   const accreditations = [
@@ -124,7 +143,7 @@ const About = () => {
                 <p className="timeline-item__text">
                   En parallèle de mes recherches sur les traumatismes, le
                   système nerveux, la pleine conscience et la manière dont nous
-                  faisons face à l’adversité, je me suis appuyée sur une sagesse
+                  faisons face à l'adversité, je me suis appuyée sur une sagesse
                   simple transmise par ma grand-mère :
                   <em>
                     "La vie est dure, ma chérie — parfois, il faut simplement
@@ -303,7 +322,11 @@ const About = () => {
             {professionalTraining.map((training, index) => (
               <div key={index} className="training-item">
                 <span className="training-item__icon">✓</span>
-                <span className="training-item__text">{training}</span>
+                <div className="training-item__text">
+                  <strong>{training.title}</strong>
+                  {training.subtitle && <em>{training.subtitle}</em>}
+                  {training.details && <span>{training.details}</span>}
+                </div>
               </div>
             ))}
           </div>
@@ -358,7 +381,7 @@ const About = () => {
           <div className="about-cta__content">
             <h2 className="about-cta__title">Prêt(e) à commencer ?</h2>
             <p className="about-cta__text">
-              Réservez votre consultation gratuite de 15 minutes
+              Réservez votre consultation gratuite de 20 minutes
             </p>
             <div className="about-cta__buttons">
               <Link to="/rendez-vous" className="btn btn--primary btn--large">

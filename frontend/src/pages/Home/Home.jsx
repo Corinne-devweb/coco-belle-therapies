@@ -49,11 +49,6 @@ const Home = () => {
               </Link>
             </div>
           </div>
-          <div className="hero__image">
-            <div className="hero__image-circle">
-              <img src="/belle.png" alt="Belle - Thérapeute" />
-            </div>
-          </div>
         </div>
       </section>
 
@@ -322,7 +317,7 @@ const Home = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    07801 766737
+                    +44 7801 766737
                   </a>
                 </div>
               </div>

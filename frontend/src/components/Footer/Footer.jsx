@@ -67,7 +67,7 @@ const Footer = () => {
         <div className="footer__section footer__social-section">
           <div className="footer__social">
             <a
-              href="https://www.facebook.com/cocobelletherapies"
+              href="https://www.facebook.com/share/16bsgY6u41"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Suivez-nous sur Facebook"
@@ -76,7 +76,7 @@ const Footer = () => {
               <i className="fab fa-facebook" aria-hidden="true"></i>
             </a>
             <a
-              href="https://www.instagram.com/cocobelletherapies"
+              href="https://www.instagram.com/coco_belle_therapies_?igsh=YWdwdzRoaDcwa214"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Suivez-nous sur Instagram"

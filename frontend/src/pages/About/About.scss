@@ -367,6 +367,7 @@
   }
 }
 
+
 // ============================================
 // TRAINING
 // ============================================
@@ -414,9 +415,91 @@
     flex: 1;
     color: $text-primary;
     line-height: 1.5;
+
+    // Titres principaux en gras et vert foncé
+    strong {
+      font-weight: $font-weight-bold;
+      color: $primary-color-dark;
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    // Sous-titres en italique
+    em {
+      font-style: italic;
+      color: $text-secondary;
+      font-size: 0.95rem;
+      display: block;
+      margin-top: 0.25rem;
+    }
+  }
+}
+// ============================================
+// TRAINING
+// ============================================
+.about-training {
+  padding: var(--section-padding-large);
+  background-color: $primary-color-light;
+}
+
+.training-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  max-width: 800px;
+  margin: 3rem auto 0;
+
+  @include respond-to('tablet') {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
+.training-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+
+  &__icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: $primary-color;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 0.875rem;
+    font-weight: bold;
+  }
+
+  &__text {
+    flex: 1;
+    color: $text-primary;
+    line-height: 1.5;
+
+    // Titres principaux en gras et vert foncé
+    strong {
+      font-weight: $font-weight-bold;
+      color: $primary-color-dark;
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    // Sous-titres en italique
+    em {
+      font-style: italic;
+      color: $text-secondary;
+      font-size: 0.95rem;
+      display: block;
+      margin-top: 0.25rem;
+    }
+  }
+}
 // ============================================
 // ACCREDITATIONS
 // ============================================

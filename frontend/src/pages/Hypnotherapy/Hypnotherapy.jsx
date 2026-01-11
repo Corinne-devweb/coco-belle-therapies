@@ -79,7 +79,7 @@ const Hypnotherapy = () => {
         <div className="container">
           <div className="hypnotherapy-hero__content">
             <h1 className="hypnotherapy-hero__title">
-              Hypnothérapie Clinique basée sur la Mindfulness
+              Hypnothérapie Clinique basée sur la pleine conscience
             </h1>
             <p className="hypnotherapy-hero__subtitle">
               Une approche intégrative pour créer un changement durable
@@ -100,15 +100,19 @@ const Hypnotherapy = () => {
                 Si vous luttez contre l'anxiété, la dépression, les peurs ou le
                 stress, et que vous êtes intéressé(e) par un travail en
                 profondeur, je propose également un service d'
-                <strong>hypnothérapie clinique basée sur la mindfulness</strong>
+                <strong>
+                  hypnothérapie clinique basée sur la pleine conscience
+                </strong>
                 .
               </p>
               <p className="intro-text">
                 En tant qu'approche intégrative, l'
-                <strong>Hypnothérapie Clinique basée sur la Mindfulness</strong>
+                <strong>
+                  Hypnothérapie Clinique basée sur la pleine conscience{" "}
+                </strong>
                 peut vous aider à vous libérer de ces schémas et à créer un
-                changement durable — avec une fusion de mindfulness, de
-                techniques de relaxation et de stratégies thérapeutiques.
+                changement durable — en associant l'attention consciente, des
+                techniques de relaxation et des stratégies thérapeutiques.
               </p>
               <p className="intro-highlight">
                 Les sessions sont en ligne, confidentielles et adaptées à vos
@@ -129,7 +133,7 @@ const Hypnotherapy = () => {
       <section className="hypnotherapy-components">
         <div className="container">
           <h2 className="section-title text-center">
-            L'Hypnothérapie Clinique basée sur la Mindfulness comprend 3
+            L'Hypnothérapie Clinique basée sur la pleine conscience comprend 3
             composantes clés
           </h2>
           <div className="components-grid">
@@ -362,8 +366,8 @@ const Hypnotherapy = () => {
             <h2 className="hypnotherapy-cta__title">Intéressé(e) ?</h2>
             <p className="hypnotherapy-cta__text">
               Si vous êtes intéressé(e) par l'Hypnothérapie Clinique basée sur
-              la Mindfulness, n'hésitez pas à me contacter pour discuter de vos
-              besoins.
+              la pleine conscience, n'hésitez pas à me contacter pour discuter
+              de vos besoins.
             </p>
 
             <div className="contact-options">
