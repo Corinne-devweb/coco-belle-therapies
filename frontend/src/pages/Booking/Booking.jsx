@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import "./Booking.scss";
 
 const Booking = () => {
-  const [step, setStep] = useState(1); // 1: Service, 2: Calendly, 3: Confirmation
+  const [step, setStep] = useState(1);
   const [selectedService, setSelectedService] = useState(null);
   const [bookingComplete, setBookingComplete] = useState(false);
 

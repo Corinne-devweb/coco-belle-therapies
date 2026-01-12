@@ -61,11 +61,11 @@ const Login = () => {
     setLoginError("");
 
     try {
-      // TODO: Remplacer par votre API d'authentification
+      // TODO: Remplacer par API d'authentification
       await new Promise((resolve) => setTimeout(resolve, 1500));
 
       // Simulation de vérification
-      // En production, vous vérifierez avec votre backend
+      // En production, vous vérifie avec votre backend
       if (
         formData.email === "demo@exemple.com" &&
         formData.password === "demo123"

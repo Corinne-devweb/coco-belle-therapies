@@ -67,7 +67,7 @@ const ADHD = () => {
               <p className="intro-text">
                 Vos pensées s'emballent-elles ? Vos niveaux d'énergie
                 fluctuent-ils ? La motivation disparaît-elle juste quand vous en
-                avez le plus besoin ?<strong> Vous n'êtes pas seul(e).</strong>
+                avez le plus besoin ? <strong> Vous n'êtes pas seul(e).</strong>
               </p>
               <p className="intro-text">
                 La{" "}

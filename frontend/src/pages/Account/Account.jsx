@@ -4,14 +4,14 @@ import { Link } from "react-router-dom";
 import "./Account.scss";
 
 const Account = () => {
-  const [activeTab, setActiveTab] = useState("appointments"); // appointments, reports, contact
+  const [activeTab, setActiveTab] = useState("appointments");
   const [messageForm, setMessageForm] = useState({
     subject: "",
     message: "",
   });
   const [messageSent, setMessageSent] = useState(false);
 
-  // SIMULATION DE DONNÉES - À remplacer par de vraies données d'API
+  // SIMULATION DE DONNÉES - TODO : remplacer par de vraies données d'API après
   const user = {
     firstName: "Marie",
     lastName: "Dupont",
@@ -133,7 +133,7 @@ const Account = () => {
   const handleMessageSubmit = async (e) => {
     e.preventDefault();
 
-    // TODO: Remplacer par votre API d'envoi d'email
+    // TODO: Remplacer par API d'envoi d'email
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
     setMessageSent(true);

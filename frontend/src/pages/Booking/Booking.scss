@@ -7,9 +7,9 @@
   --section-padding-large: 6rem 1rem;
 }
 
-// ============================================
+
 // HERO SECTION
-// ============================================
+
 .booking-hero {
   position: relative;
   min-height: 40vh;
@@ -67,9 +67,9 @@
   }
 }
 
-// ============================================
+
 // PROGRESS BAR
-// ============================================
+
 .booking-progress {
   padding: 2rem 1rem;
   background-color: white;
@@ -158,9 +158,8 @@
   }
 }
 
-// ============================================
 // BOOKING STEP
-// ============================================
+
 .booking-step {
   padding: var(--section-padding-large);
   background-color: $bg-grey;
@@ -203,9 +202,8 @@
   }
 }
 
-// ============================================
 // SERVICES GRID
-// ============================================
+
 .services-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -292,9 +290,9 @@
   }
 }
 
-// ============================================
+
 // SESSION TYPES
-// ============================================
+
 .session-types-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -350,9 +348,9 @@
   }
 }
 
-// ============================================
+
 // DATES & TIMES
-// ============================================
+
 .dates-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -468,9 +466,9 @@
   }
 }
 
-// ============================================
+
 // BOOKING FORM
-// ============================================
+
 .booking-form {
   max-width: 800px;
   margin: 2rem auto 0;
@@ -620,9 +618,9 @@
   }
 }
 
-// ============================================
+
 // STEP ACTIONS
-// ============================================
+
 .step-actions {
   display: flex;
   flex-direction: column;
@@ -645,9 +643,9 @@
   border-radius: 6px;
 }
 
-// ============================================
+
 // SPINNER
-// ============================================
+
 .spinner {
   display: inline-block;
   width: 16px;
@@ -665,9 +663,9 @@
   }
 }
 
-// ============================================
+
 // CONFIRMATION
-// ============================================
+
 .booking-confirmation {
   padding: var(--section-padding-large);
   background-color: $bg-grey;
@@ -792,9 +790,9 @@
   }
 }
 
-// ============================================
+
 // INFO CARDS
-// ============================================
+
 .booking-info {
   padding: var(--section-padding);
   background-color: white;
@@ -836,9 +834,9 @@
   }
 }
 
-// ============================================
+
 // CALENDLY WIDGET
-// ============================================
+
 .calendly-widget-container {
   max-width: 1000px;
   margin: 2rem auto;

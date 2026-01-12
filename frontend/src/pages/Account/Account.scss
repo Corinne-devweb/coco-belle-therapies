@@ -6,9 +6,9 @@
   --section-padding: 4rem 1rem;
 }
 
-// ============================================
+
 // HERO SECTION
-// ============================================
+
 .account-hero {
   position: relative;
   min-height: 30vh;
@@ -66,9 +66,8 @@
   }
 }
 
-// ============================================
 // ACCOUNT CONTENT
-// ============================================
+
 .account-content {
   padding: var(--section-padding);
   background-color: $bg-grey;
@@ -86,9 +85,8 @@
   }
 }
 
-// ============================================
 // SIDEBAR
-// ============================================
+
 .account-sidebar {
   display: flex;
   flex-direction: column;
@@ -194,9 +192,9 @@
   gap: 1rem;
 }
 
-// ============================================
+
 // MAIN CONTENT
-// ============================================
+
 .account-main {
   background-color: white;
   padding: 2rem;
@@ -219,9 +217,9 @@
   }
 }
 
-// ============================================
+
 // APPOINTMENTS SECTION
-// ============================================
+
 .appointments-section {
   display: flex;
   flex-direction: column;
@@ -370,9 +368,9 @@
   }
 }
 
-// ============================================
+
 // REPORTS SECTION
-// ============================================
+
 .reports-list {
   display: flex;
   flex-direction: column;
@@ -472,9 +470,8 @@
   }
 }
 
-// ============================================
 // CONTACT SECTION
-// ============================================
+
 .contact-info-cards {
   display: grid;
   grid-template-columns: 1fr;
@@ -600,9 +597,9 @@
   }
 }
 
-// ============================================
+
 // BUTTONS
-// ============================================
+
 .btn {
   &--block {
     width: 100%;

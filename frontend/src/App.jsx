@@ -13,6 +13,8 @@ import Account from "./pages/Account/Account";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import Contact from "./pages/Contact/Contact";
+import Blog from "./pages/Blog/Blog";
+import BlogArticle from "./pages/BlogArticle/BlogArticle";
 import LegalNotice from "./pages/LegalNotice/LegalNotice";
 import PrivacyPolicy from "./pages/PrivacyPolicy/PrivacyPolicy";
 import CookiesPolicy from "./pages/CookiesPolicy/CookiesPolicy";
@@ -70,28 +72,87 @@ function App() {
             {/* Page Contact */}
             <Route path="/contact" element={<Contact />} />
 
-            {/* Pages à créer */}
-            <Route
-              path="/blog"
-              element={
-                <div style={{ padding: "3rem 1rem", minHeight: "70vh" }}>
-                  <h1>Blog</h1>
-                  <p>Page en cours de construction...</p>
-                </div>
-              }
-            />
+            {/* Page Blog */}
+            <Route path="/blog" element={<Blog />} />
 
+            {/* Page Article individuel */}
+            <Route path="/blog/:id" element={<BlogArticle />} />
+
+            {/* Page Mot de passe oublié - Temporaire */}
             <Route
               path="/mot-de-passe-oublie"
               element={
                 <div style={{ padding: "3rem 1rem", minHeight: "70vh" }}>
-                  <h1>Mot de passe oublié</h1>
-                  <p>Page en cours de construction...</p>
+                  <div
+                    className="container"
+                    style={{
+                      maxWidth: "600px",
+                      margin: "0 auto",
+                      textAlign: "center",
+                    }}
+                  >
+                    <h1 style={{ color: "#2A7A73", marginBottom: "1rem" }}>
+                      Mot de passe oublié
+                    </h1>
+                    <p style={{ marginBottom: "2rem" }}>
+                      Cette fonctionnalité sera bientôt disponible.
+                    </p>
+                    <p style={{ marginBottom: "2rem" }}>
+                      En attendant, vous pouvez me contacter directement :
+                    </p>
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: "1rem",
+                        alignItems: "center",
+                      }}
+                    >
+                      <a
+                        href="mailto:info@cocobelletherapies.com"
+                        style={{
+                          padding: "0.75rem 1.5rem",
+                          backgroundColor: "#2A7A73",
+                          color: "white",
+                          textDecoration: "none",
+                          borderRadius: "4px",
+                          display: "inline-block",
+                        }}
+                      >
+                        📧 info@cocobelletherapies.com
+                      </a>
+                      <a
+                        href="https://wa.me/447801766737"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{
+                          padding: "0.75rem 1.5rem",
+                          backgroundColor: "#25D366",
+                          color: "white",
+                          textDecoration: "none",
+                          borderRadius: "4px",
+                          display: "inline-block",
+                        }}
+                      >
+                        📱 WhatsApp : +44 7801 766737
+                      </a>
+                      <a
+                        href="/connexion"
+                        style={{
+                          marginTop: "1rem",
+                          color: "#2A7A73",
+                          textDecoration: "underline",
+                        }}
+                      >
+                        ← Retour à la connexion
+                      </a>
+                    </div>
+                  </div>
                 </div>
               }
             />
 
-            {/* Pages légales - TOUTES CRÉÉES */}
+            {/* Pages légales */}
             <Route path="/mentions-legales" element={<LegalNotice />} />
             <Route
               path="/politique-confidentialite"

@@ -8,22 +8,22 @@
   left: 0;
   right: 0;
   z-index: 1000;
-  background-color: white; // Fond blanc
-  padding: 0.75rem 1rem; // Padding réduit sur mobile
+  background-color: white;
+  padding: 0.75rem 1rem;
   transition: all 0.3s ease;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 
   @include respond-to('tablet') {
-    padding: 1rem; // Padding normal sur tablette+
+    padding: 1rem;
   }
 
-  // État scrollé
+  // Au scroll
   &--scrolled {
     padding: 0.5rem 1rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 
     .navbar__logo-img {
-      height: 30px; // Plus petit quand scrollé sur mobile
+      height: 30px; 
 
       @include respond-to('mobile') {
         height: 35px;
@@ -56,7 +56,7 @@
     z-index: 1001;
 
     &-img {
-      height: 35px; // Plus petit sur mobile
+      height: 35px; 
       width: auto;
       transition: height 0.3s ease;
 
@@ -100,12 +100,12 @@
     &-line {
       width: 100%;
       height: 3px;
-      background-color: $primary-color; // Lignes vertes
+      background-color: $primary-color;
       transition: all 0.3s ease;
       border-radius: 2px;
     }
 
-    // Animation burger → X
+    // Menu burger X
     &[aria-expanded="true"] {
       .navbar__burger-line {
         &:nth-child(1) {
@@ -141,7 +141,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: white; // Fond blanc sur mobile aussi
+    background-color: white;
     transform: translateX(-100%);
     transition: transform 0.3s ease;
     overflow-y: auto;
@@ -175,7 +175,7 @@
       font-size: 1.125rem;
       text-transform: uppercase;
       
-      color: $primary-color; // Texte vert profond
+      color: $primary-color;
       text-decoration: none;
       transition: all 0.3s ease;
       border-radius: 4px;
@@ -188,7 +188,7 @@
       &:hover,
       &:focus {
         color: white;
-        background-color: $primary-color; // Fond vert au hover
+        background-color: $primary-color;
       }
 
       &:focus {
@@ -200,12 +200,12 @@
       &.active {
         color: white;
         font-weight: $font-weight-semibold;
-        background-color: $primary-color; // Fond vert pour lien actif
+        background-color: $primary-color; 
       }
     }
   }
 
-  // Actions (Rendez-vous + compte)
+  // Rendez-vous et compte
   &__actions {
     display: none;
 
@@ -222,7 +222,7 @@
     font-size: 1rem;
     text-transform: uppercase;
     white-space: nowrap;
-    background-color: $primary-color; // Fond vert
+    background-color: $primary-color;
     color: white; // Texte blanc
     border: 2px solid $primary-color;
     border-radius: 4px;
@@ -231,7 +231,7 @@
 
     &:hover,
     &:focus {
-      background-color: $primary-color-dark; // Vert plus foncé au hover
+      background-color: $primary-color-dark;
       border-color: $primary-color-dark;
       color: white;
     }
@@ -249,15 +249,15 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: rgba($primary-color, 0.1); // Fond vert très clair
-    color: $primary-color; // Icône verte
+    background-color: rgba($primary-color, 0.1);
+    color: $primary-color;
     text-decoration: none;
     transition: all 0.3s ease;
 
     &:hover,
     &:focus {
-      background-color: $primary-color; // Fond vert au hover
-      color: white; // Icône blanche
+      background-color: $primary-color; 
+      color: white;
     }
 
     &:focus {
@@ -269,7 +269,7 @@
 
 // Ajuster le contenu pour compenser la navbar fixe
 .main-content {
-  padding-top: 70px; // Réduit pour mobile
+  padding-top: 70px;
 
   @include respond-to('tablet') {
     padding-top: 80px;

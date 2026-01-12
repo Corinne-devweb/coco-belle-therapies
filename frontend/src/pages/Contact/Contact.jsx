@@ -96,7 +96,7 @@ const Contact = () => {
     setIsSubmitting(true);
     setSubmitStatus(null);
 
-    // Simulation d'envoi (à remplacer par votre API)
+    // Simulation d'envoi (à remplacer par API)
     try {
       // TODO: Remplacer par votre endpoint API
       // const response = await fetch('/api/contact', {

@@ -150,7 +150,7 @@ const Navbar = () => {
           </li>
         </ul>
 
-        {/* Actions - Boutons à droite */}
+        {/* CTA */}
         <div className="navbar__actions">
           <Link
             to="/rendez-vous"

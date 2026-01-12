@@ -7,9 +7,9 @@
   --section-padding-large: 6rem 1rem;
 }
 
-// ============================================
+
 // HERO SECTION
-// ============================================
+
 .contact-hero {
   position: relative;
   min-height: 40vh;
@@ -67,9 +67,9 @@
   }
 }
 
-// ============================================
+
 // CONTACT INFO
-// ============================================
+
 .contact-info-section {
   padding: var(--section-padding-large);
   background-color: white;
@@ -131,9 +131,9 @@
   }
 }
 
-// ============================================
+
 // CONTACT FORM SECTION
-// ============================================
+
 .contact-form-section {
   padding: var(--section-padding-large);
   background-color: $primary-color-light;
@@ -174,9 +174,9 @@
   }
 }
 
-// ============================================
+
 // ALERTS
-// ============================================
+
 .alert {
   padding: 1.5rem;
   border-radius: 8px;
@@ -230,9 +230,9 @@
   }
 }
 
-// ============================================
+
 // FORM ELEMENTS
-// ============================================
+
 .contact-form {
   .form-row {
     display: grid;
@@ -373,9 +373,9 @@
   }
 }
 
-// ============================================
+
 // SPINNER
-// ============================================
+
 .spinner {
   display: inline-block;
   width: 16px;
@@ -393,9 +393,9 @@
   }
 }
 
-// ============================================
+
 // FAQ
-// ============================================
+
 .contact-faq {
   padding: var(--section-padding-large);
   background-color: white;
