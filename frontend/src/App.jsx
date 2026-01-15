@@ -13,8 +13,6 @@ import Account from "./pages/Account/Account";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import Contact from "./pages/Contact/Contact";
-import Blog from "./pages/Blog/Blog";
-import BlogArticle from "./pages/BlogArticle/BlogArticle";
 import LegalNotice from "./pages/LegalNotice/LegalNotice";
 import PrivacyPolicy from "./pages/PrivacyPolicy/PrivacyPolicy";
 import CookiesPolicy from "./pages/CookiesPolicy/CookiesPolicy";
@@ -72,12 +70,6 @@ function App() {
             {/* Page Contact */}
             <Route path="/contact" element={<Contact />} />
 
-            {/* Page Blog */}
-            <Route path="/blog" element={<Blog />} />
-
-            {/* Page Article individuel */}
-            <Route path="/blog/:id" element={<BlogArticle />} />
-
             {/* Page Mot de passe oublié - Temporaire */}
             <Route
               path="/mot-de-passe-oublie"
@@ -121,6 +113,7 @@ function App() {
                       >
                         📧 info@cocobelletherapies.com
                       </a>
+
                       <a
                         href="https://wa.me/447801766737"
                         target="_blank"
@@ -136,6 +129,7 @@ function App() {
                       >
                         📱 WhatsApp : +44 7801 766737
                       </a>
+
                       <a
                         href="/connexion"
                         style={{
@@ -179,7 +173,7 @@ function App() {
                   <h1 style={{ fontSize: "4rem", color: "#2A7A73" }}>404</h1>
                   <h2>Page non trouvée</h2>
                   <p style={{ marginTop: "1rem" }}>
-                    Désolé, la page que vous recherchez n'existe pas.
+                    Désolé, la page que vous recherchez n&apos;existe pas.
                   </p>
 
                   <a
@@ -194,7 +188,7 @@ function App() {
                       fontWeight: "500",
                     }}
                   >
-                    Retour à l'accueil
+                    Retour à l&apos;accueil
                   </a>
                 </div>
               }

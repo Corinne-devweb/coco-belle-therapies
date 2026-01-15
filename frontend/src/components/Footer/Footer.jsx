@@ -1,7 +1,6 @@
 // src/components/Footer/Footer.jsx
 import { Link } from "react-router-dom";
 import "./Footer.scss";
-import logoImage from "../../../public/logo.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -13,7 +12,7 @@ const Footer = () => {
         <div className="footer__section footer__logo-section">
           <Link to="/" aria-label="Coco Belle Therapies - Retour à l'accueil">
             <img
-              src={logoImage}
+              src="/logo.png"
               alt="Logo Coco Belle Therapies"
               className="footer__logo"
             />
@@ -75,6 +74,7 @@ const Footer = () => {
             >
               <i className="fab fa-facebook" aria-hidden="true"></i>
             </a>
+
             <a
               href="https://www.instagram.com/coco_belle_therapies_?igsh=YWdwdzRoaDcwa214"
               target="_blank"

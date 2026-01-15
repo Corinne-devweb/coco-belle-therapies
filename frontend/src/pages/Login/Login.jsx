@@ -1,6 +1,7 @@
 // src/pages/Login/Login.jsx
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { authAPI } from "../../services/api";
 import "./Login.scss";
 
 const Login = () => {
@@ -61,26 +62,43 @@ const Login = () => {
     setLoginError("");
 
     try {
-      // TODO: Remplacer par API d'authentification
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      // Appel à l'API backend
+      const response = await authAPI.login({
+        email: formData.email,
+        password: formData.password,
+      });
 
-      // Simulation de vérification
-      // En production, vous vérifie avec votre backend
-      if (
-        formData.email === "demo@exemple.com" &&
-        formData.password === "demo123"
-      ) {
-        // Sauvegarder le token/session
-        localStorage.setItem("isLoggedIn", "true");
-        localStorage.setItem("userEmail", formData.email);
+      // Récupérer le token et les données utilisateur
+      const { token, user } = response.data;
 
-        // Redirection vers Mon Compte
-        navigate("/mon-compte");
-      } else {
-        setLoginError("Email ou mot de passe incorrect");
-      }
+      // Sauvegarder dans localStorage
+      localStorage.setItem("token", token);
+      localStorage.setItem("user", JSON.stringify(user));
+      localStorage.setItem("isLoggedIn", "true");
+
+      // Message de succès (optionnel)
+      console.log("✅ Connexion réussie:", user);
+
+      // Redirection vers Mon Compte
+      navigate("/mon-compte");
     } catch (error) {
-      setLoginError("Une erreur est survenue. Veuillez réessayer.");
+      console.error("❌ Erreur de connexion:", error);
+
+      // Gérer les différents types d'erreurs
+      if (error.response) {
+        // Erreur venant du serveur
+        setLoginError(
+          error.response.data.message || "Email ou mot de passe incorrect"
+        );
+      } else if (error.request) {
+        // Pas de réponse du serveur
+        setLoginError(
+          "Impossible de contacter le serveur. Vérifiez votre connexion."
+        );
+      } else {
+        // Autre erreur
+        setLoginError("Une erreur est survenue. Veuillez réessayer.");
+      }
     } finally {
       setIsSubmitting(false);
     }
@@ -201,18 +219,6 @@ const Login = () => {
                   <Link to="/inscription" className="link">
                     Créer un compte
                   </Link>
-                </p>
-              </div>
-
-              <div className="demo-credentials">
-                <p className="demo-credentials__title">
-                  🔐 Compte de démonstration :
-                </p>
-                <p>
-                  <strong>Email :</strong> demo@exemple.com
-                </p>
-                <p>
-                  <strong>Mot de passe :</strong> demo123
                 </p>
               </div>
             </div>

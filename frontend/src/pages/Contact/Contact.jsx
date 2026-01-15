@@ -1,5 +1,6 @@
 // src/pages/Contact/Contact.jsx
 import { useState } from "react";
+import { contactAPI } from "../../services/api";
 import "./Contact.scss";
 
 const Contact = () => {
@@ -96,17 +97,17 @@ const Contact = () => {
     setIsSubmitting(true);
     setSubmitStatus(null);
 
-    // Simulation d'envoi (à remplacer par API)
     try {
-      // TODO: Remplacer par votre endpoint API
-      // const response = await fetch('/api/contact', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify(formData)
-      // });
+      // Appel à l'API backend
+      const response = await contactAPI.sendMessage({
+        name: `${formData.firstName} ${formData.lastName}`,
+        email: formData.email,
+        phone: formData.phone,
+        subject: formData.subject,
+        message: formData.message,
+      });
 
-      // Simulation d'un délai
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      console.log("✅ Message envoyé:", response.data);
 
       // Succès
       setSubmitStatus("success");
@@ -123,6 +124,7 @@ const Contact = () => {
       // Faire défiler vers le haut pour voir le message de succès
       window.scrollTo({ top: 0, behavior: "smooth" });
     } catch (error) {
+      console.error("❌ Erreur envoi message:", error);
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
@@ -153,6 +155,7 @@ const Contact = () => {
             <div className="contact-method">
               <div className="contact-method__icon">📧</div>
               <h3 className="contact-method__title">Email</h3>
+
               <a
                 href="mailto:info@cocobelletherapies.com"
                 className="contact-method__link"
@@ -168,6 +171,7 @@ const Contact = () => {
             <div className="contact-method">
               <div className="contact-method__icon">📱</div>
               <h3 className="contact-method__title">WhatsApp</h3>
+
               <a
                 href="https://wa.me/447801766737"
                 target="_blank"

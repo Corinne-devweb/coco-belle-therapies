@@ -1,6 +1,7 @@
 // src/pages/Register/Register.jsx
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { authAPI } from "../../services/api";
 import "./Register.scss";
 
 const Register = () => {
@@ -16,6 +17,7 @@ const Register = () => {
   });
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [registerError, setRegisterError] = useState("");
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -26,6 +28,9 @@ const Register = () => {
 
     if (errors[name]) {
       setErrors((prev) => ({ ...prev, [name]: undefined }));
+    }
+    if (registerError) {
+      setRegisterError("");
     }
   };
 
@@ -53,12 +58,9 @@ const Register = () => {
 
     if (!formData.password) {
       newErrors.password = "Le mot de passe est requis";
-    } else if (formData.password.length < 8) {
+    } else if (formData.password.length < 6) {
       newErrors.password =
-        "Le mot de passe doit contenir au moins 8 caractères";
-    } else if (!/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])/.test(formData.password)) {
-      newErrors.password =
-        "Le mot de passe doit contenir au moins une majuscule, une minuscule et un chiffre";
+        "Le mot de passe doit contenir au moins 6 caractères";
     }
 
     if (!formData.confirmPassword) {
@@ -83,19 +85,48 @@ const Register = () => {
     }
 
     setIsSubmitting(true);
+    setRegisterError("");
 
     try {
-      // TODO: Remplacer par votre API d'inscription
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      // Appel à l'API backend
+      const response = await authAPI.register({
+        name: `${formData.firstName} ${formData.lastName}`,
+        email: formData.email,
+        password: formData.password,
+      });
 
-      // Sauvegarder le token/session
+      // Récupérer le token et les données utilisateur
+      const { token, user } = response.data;
+
+      // Sauvegarder dans localStorage
+      localStorage.setItem("token", token);
+      localStorage.setItem("user", JSON.stringify(user));
       localStorage.setItem("isLoggedIn", "true");
-      localStorage.setItem("userEmail", formData.email);
+
+      // Message de succès (optionnel)
+      console.log("✅ Inscription réussie:", user);
 
       // Redirection vers Mon Compte
       navigate("/mon-compte");
     } catch (error) {
-      alert("Une erreur est survenue. Veuillez réessayer.");
+      console.error("❌ Erreur d'inscription:", error);
+
+      // Gérer les différents types d'erreurs
+      if (error.response) {
+        // Erreur venant du serveur
+        setRegisterError(
+          error.response.data.message ||
+            "Une erreur est survenue lors de l'inscription"
+        );
+      } else if (error.request) {
+        // Pas de réponse du serveur
+        setRegisterError(
+          "Impossible de contacter le serveur. Vérifiez votre connexion."
+        );
+      } else {
+        // Autre erreur
+        setRegisterError("Une erreur est survenue. Veuillez réessayer.");
+      }
     } finally {
       setIsSubmitting(false);
     }
@@ -125,6 +156,13 @@ const Register = () => {
                 <h2>Créer un compte</h2>
                 <p>Remplissez le formulaire pour commencer</p>
               </div>
+
+              {registerError && (
+                <div className="alert alert--error">
+                  <span className="alert__icon">⚠️</span>
+                  <span>{registerError}</span>
+                </div>
+              )}
 
               <form onSubmit={handleSubmit} className="register-form">
                 <div className="form-row">
@@ -229,9 +267,7 @@ const Register = () => {
                   {errors.password && (
                     <span className="form-error">{errors.password}</span>
                   )}
-                  <p className="form-hint">
-                    Minimum 8 caractères, avec majuscule, minuscule et chiffre
-                  </p>
+                  <p className="form-hint">Minimum 6 caractères</p>
                 </div>
 
                 <div className="form-group">

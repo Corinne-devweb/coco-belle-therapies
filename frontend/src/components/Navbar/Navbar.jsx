@@ -1,12 +1,25 @@
 // src/components/Navbar/Navbar.jsx
 import { useState, useEffect, useRef } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import "./Navbar.scss";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navRef = useRef(null);
+  const location = useLocation();
+
+  // Vérifier si l'utilisateur est connecté
+  const checkAuth = () => {
+    const loggedIn = localStorage.getItem("isLoggedIn") === "true";
+    setIsLoggedIn(loggedIn);
+  };
+
+  // Vérifier l'authentification au chargement ET à chaque changement de page
+  useEffect(() => {
+    checkAuth();
+  }, [location]);
 
   // Détection du scroll
   useEffect(() => {
@@ -39,6 +52,15 @@ const Navbar = () => {
     if (e.key === "Escape" && menuOpen) {
       setMenuOpen(false);
     }
+  };
+
+  // Déconnexion
+  const handleLogout = () => {
+    localStorage.removeItem("isLoggedIn");
+    localStorage.removeItem("token");
+    setIsLoggedIn(false);
+    setMenuOpen(false);
+    window.location.href = "/connexion";
   };
 
   return (
@@ -132,20 +154,29 @@ const Navbar = () => {
           </li>
           <li role="none">
             <NavLink
-              to="/blog"
-              role="menuitem"
-              onClick={() => setMenuOpen(false)}
-            >
-              Blog
-            </NavLink>
-          </li>
-          <li role="none">
-            <NavLink
               to="/contact"
               role="menuitem"
               onClick={() => setMenuOpen(false)}
             >
               Contact
+            </NavLink>
+          </li>
+          <li role="none" className="navbar__menu-mobile-only">
+            <NavLink
+              to="/rendez-vous"
+              role="menuitem"
+              onClick={() => setMenuOpen(false)}
+            >
+              Prendre RDV
+            </NavLink>
+          </li>
+          <li role="none" className="navbar__menu-mobile-only">
+            <NavLink
+              to="/mon-compte"
+              role="menuitem"
+              onClick={() => setMenuOpen(false)}
+            >
+              Mon Compte
             </NavLink>
           </li>
         </ul>
@@ -159,15 +190,36 @@ const Navbar = () => {
           >
             Prendre RDV
           </Link>
-          <Link
-            to="/mon-compte"
-            className="navbar__account"
-            aria-label="Accéder à mon compte"
-            S
-          >
-            <i className="fas fa-user" aria-hidden="true"></i>
-            <span className="visually-hidden">Mon compte</span>
-          </Link>
+
+          {isLoggedIn ? (
+            <>
+              <Link
+                to="/mon-compte"
+                className="navbar__account"
+                aria-label="Accéder à mon compte"
+              >
+                <i className="fas fa-user" aria-hidden="true"></i>
+                <span className="visually-hidden">Mon compte</span>
+              </Link>
+              <button
+                onClick={handleLogout}
+                className="navbar__logout"
+                aria-label="Se déconnecter"
+                title="Déconnexion"
+              >
+                <i className="fas fa-sign-out-alt" aria-hidden="true"></i>
+              </button>
+            </>
+          ) : (
+            <Link
+              to="/connexion"
+              className="navbar__account"
+              aria-label="Se connecter"
+            >
+              <i className="fas fa-user" aria-hidden="true"></i>
+              <span className="visually-hidden">Connexion</span>
+            </Link>
+          )}
         </div>
       </div>
     </nav>
