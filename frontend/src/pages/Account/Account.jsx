@@ -45,17 +45,6 @@ const Account = () => {
   // Pas de rendez-vous pour l'instant
   const upcomingAppointments = [];
   const pastAppointments = [];
-  const sessionReports = [];
-
-  const formatDate = (dateString) => {
-    const date = new Date(dateString);
-    return date.toLocaleDateString("fr-FR", {
-      weekday: "long",
-      day: "numeric",
-      month: "long",
-      year: "numeric",
-    });
-  };
 
   const handleMessageChange = (e) => {
     const { name, value } = e.target;
@@ -151,15 +140,6 @@ const Account = () => {
                 </button>
                 <button
                   className={`account-nav__item ${
-                    activeTab === "reports" ? "active" : ""
-                  }`}
-                  onClick={() => setActiveTab("reports")}
-                >
-                  <span className="account-nav__icon">📝</span>
-                  <span>Comptes rendus</span>
-                </button>
-                <button
-                  className={`account-nav__item ${
                     activeTab === "contact" ? "active" : ""
                   }`}
                   onClick={() => setActiveTab("contact")}
@@ -219,20 +199,6 @@ const Account = () => {
                     <div className="empty-state">
                       <p>Aucun rendez-vous passé.</p>
                     </div>
-                  </div>
-                </div>
-              )}
-
-              {/* Tab: Reports */}
-              {activeTab === "reports" && (
-                <div className="reports-section">
-                  <h2 className="section-title">Comptes rendus de sessions</h2>
-
-                  <div className="empty-state">
-                    <p>Aucun compte rendu disponible pour le moment.</p>
-                    <p className="empty-state__subtext">
-                      Les comptes rendus apparaîtront ici après vos sessions.
-                    </p>
                   </div>
                 </div>
               )}
@@ -298,9 +264,6 @@ const Account = () => {
                           <option value="">Choisissez un sujet</option>
                           <option value="appointment">
                             Question sur un rendez-vous
-                          </option>
-                          <option value="report">
-                            Question sur un compte rendu
                           </option>
                           <option value="payment">
                             Question sur le paiement
