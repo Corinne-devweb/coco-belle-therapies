@@ -3,11 +3,12 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const helmet = require("helmet");
 const rateLimit = require("express-rate-limit");
+const mongoSanitize = require("express-mongo-sanitize");
+const xss = require("xss-clean");
 require("dotenv").config();
 
 // Import des routes
 const authRoutes = require("./routes/auth");
-const blogRoutes = require("./routes/blog");
 const contactRoutes = require("./routes/contact");
 
 const app = express();
@@ -29,6 +30,12 @@ app.use(
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// Protection contre les injections NoSQL
+app.use(mongoSanitize());
+
+// Protection contre les attaques XSS
+app.use(xss());
+
 // Rate limiting - Limite les requêtes
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
@@ -48,7 +55,6 @@ app.get("/", (req, res) => {
 
 // Routes API
 app.use("/api/auth", authRoutes);
-app.use("/api/blog", blogRoutes);
 app.use("/api/contact", contactRoutes);
 
 // ===== CONNEXION MONGODB =====

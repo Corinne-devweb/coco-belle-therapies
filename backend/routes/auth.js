@@ -2,23 +2,16 @@ const express = require("express");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const User = require("../models/User");
+const { validateRegister, validateLogin } = require("../middleware/validation");
 
 const router = express.Router();
 
 // @route   POST /api/auth/register
 // @desc    Inscription d'un nouvel utilisateur
 // @access  Public
-router.post("/register", async (req, res) => {
+router.post("/register", validateRegister, async (req, res) => {
   try {
     const { name, email, password } = req.body;
-
-    // Validation
-    if (!name || !email || !password) {
-      return res.status(400).json({
-        success: false,
-        message: "Tous les champs sont requis",
-      });
-    }
 
     // Vérifier si l'utilisateur existe déjà
     const existingUser = await User.findOne({ email });
@@ -37,7 +30,7 @@ router.post("/register", async (req, res) => {
     const user = await User.create({
       name,
       email,
-      password: hashedPassword, // Mot de passe déjà hashé
+      password: hashedPassword,
     });
 
     // Créer le token JWT
@@ -71,17 +64,9 @@ router.post("/register", async (req, res) => {
 // @route   POST /api/auth/login
 // @desc    Connexion d'un utilisateur
 // @access  Public
-router.post("/login", async (req, res) => {
+router.post("/login", validateLogin, async (req, res) => {
   try {
     const { email, password } = req.body;
-
-    // Validation
-    if (!email || !password) {
-      return res.status(400).json({
-        success: false,
-        message: "Email et mot de passe requis",
-      });
-    }
 
     // Trouver l'utilisateur (avec le mot de passe)
     const user = await User.findOne({ email }).select("+password");

@@ -1,20 +1,13 @@
 const express = require("express");
 const router = express.Router();
 const Contact = require("../models/Contact");
-const nodemailer = require("nodemailer");
+const { protect } = require("../middleware/auth");
+const { validateContact } = require("../middleware/validation");
 
 // ===== ENVOYER UN MESSAGE DE CONTACT =====
-router.post("/", async (req, res) => {
+router.post("/", validateContact, async (req, res) => {
   try {
     const { name, email, phone, subject, message } = req.body;
-
-    // Validation basique
-    if (!name || !email || !subject || !message) {
-      return res.status(400).json({
-        success: false,
-        message: "Tous les champs obligatoires doivent être remplis",
-      });
-    }
 
     // Sauvegarder le message dans la base de données
     const contact = await Contact.create({
@@ -24,9 +17,6 @@ router.post("/", async (req, res) => {
       subject,
       message,
     });
-
-    // TODO : Configurer l'envoi d'email (on le fera plus tard)
-    // Pour l'instant, on sauvegarde juste en base de données
 
     res.status(201).json({
       success: true,
@@ -48,8 +38,8 @@ router.post("/", async (req, res) => {
   }
 });
 
-// ===== OBTENIR TOUS LES MESSAGES (ADMIN) =====
-router.get("/", async (req, res) => {
+// ===== OBTENIR TOUS LES MESSAGES (PROTÉGÉ) =====
+router.get("/", protect, async (req, res) => {
   try {
     const contacts = await Contact.find().sort({ createdAt: -1 });
 
