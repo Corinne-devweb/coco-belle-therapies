@@ -1,9 +1,9 @@
-// backend/routes/contact.js
 const express = require("express");
 const router = express.Router();
 const Contact = require("../models/Contact");
 const { protect } = require("../middleware/auth");
 const { validateContact } = require("../middleware/validation");
+const { sendContactNotification } = require("../config/email");
 
 // ===== ENVOYER UN MESSAGE DE CONTACT =====
 router.post("/", validateContact, async (req, res) => {
@@ -12,6 +12,15 @@ router.post("/", validateContact, async (req, res) => {
 
     // Sauvegarder le message dans la base de données
     const contact = await Contact.create({
+      name,
+      email,
+      phone,
+      subject,
+      message,
+    });
+
+    // Envoyer l'email de notification
+    await sendContactNotification({
       name,
       email,
       phone,
