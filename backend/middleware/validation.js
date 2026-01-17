@@ -1,102 +1,120 @@
-const { body, validationResult } = require("express-validator");
+// backend/middleware/validation.js
+// Validation manuelle sans dépendances externes
 
-// Middleware pour gérer les erreurs de validation
-const validate = (req, res, next) => {
-  const errors = validationResult(req);
-  if (!errors.isEmpty()) {
+const validateRegister = (req, res, next) => {
+  const { name, email, password } = req.body;
+  const errors = [];
+
+  // Validation nom
+  if (!name || name.trim().length < 2 || name.trim().length > 50) {
+    errors.push({
+      field: "name",
+      message: "Le nom doit contenir entre 2 et 50 caractères",
+    });
+  }
+
+  // Validation email
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!email || !emailRegex.test(email)) {
+    errors.push({ field: "email", message: "Email invalide" });
+  }
+
+  // Validation mot de passe
+  if (!password || password.length < 6) {
+    errors.push({
+      field: "password",
+      message: "Le mot de passe doit contenir au moins 6 caractères",
+    });
+  }
+  if (!/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/.test(password)) {
+    errors.push({
+      field: "password",
+      message:
+        "Le mot de passe doit contenir une majuscule, une minuscule et un chiffre",
+    });
+  }
+
+  if (errors.length > 0) {
     return res.status(400).json({
       success: false,
       message: "Erreurs de validation",
-      errors: errors.array(),
+      errors,
     });
   }
+
   next();
 };
 
-// Validation pour l'inscription
-const validateRegister = [
-  body("name")
-    .trim()
-    .notEmpty()
-    .withMessage("Le nom est requis")
-    .isLength({ min: 2, max: 50 })
-    .withMessage("Le nom doit contenir entre 2 et 50 caractères"),
+const validateLogin = (req, res, next) => {
+  const { email, password } = req.body;
+  const errors = [];
 
-  body("email")
-    .trim()
-    .notEmpty()
-    .withMessage("L'email est requis")
-    .isEmail()
-    .withMessage("Email invalide")
-    .normalizeEmail(),
+  // Validation email
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!email || !emailRegex.test(email)) {
+    errors.push({ field: "email", message: "Email invalide" });
+  }
 
-  body("password")
-    .notEmpty()
-    .withMessage("Le mot de passe est requis")
-    .isLength({ min: 6 })
-    .withMessage("Le mot de passe doit contenir au moins 6 caractères")
-    .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/)
-    .withMessage(
-      "Le mot de passe doit contenir au moins une majuscule, une minuscule et un chiffre"
-    ),
+  // Validation mot de passe
+  if (!password) {
+    errors.push({ field: "password", message: "Le mot de passe est requis" });
+  }
 
-  validate,
-];
+  if (errors.length > 0) {
+    return res.status(400).json({
+      success: false,
+      message: "Erreurs de validation",
+      errors,
+    });
+  }
 
-// Validation pour la connexion
-const validateLogin = [
-  body("email")
-    .trim()
-    .notEmpty()
-    .withMessage("L'email est requis")
-    .isEmail()
-    .withMessage("Email invalide")
-    .normalizeEmail(),
+  next();
+};
 
-  body("password").notEmpty().withMessage("Le mot de passe est requis"),
+const validateContact = (req, res, next) => {
+  const { name, email, subject, message } = req.body;
+  const errors = [];
 
-  validate,
-];
+  // Validation nom
+  if (!name || name.trim().length < 2 || name.trim().length > 100) {
+    errors.push({
+      field: "name",
+      message: "Le nom doit contenir entre 2 et 100 caractères",
+    });
+  }
 
-// Validation pour le formulaire de contact
-const validateContact = [
-  body("name")
-    .trim()
-    .notEmpty()
-    .withMessage("Le nom est requis")
-    .isLength({ min: 2, max: 100 })
-    .withMessage("Le nom doit contenir entre 2 et 100 caractères"),
+  // Validation email
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!email || !emailRegex.test(email)) {
+    errors.push({ field: "email", message: "Email invalide" });
+  }
 
-  body("email")
-    .trim()
-    .notEmpty()
-    .withMessage("L'email est requis")
-    .isEmail()
-    .withMessage("Email invalide")
-    .normalizeEmail(),
+  // Validation sujet
+  if (!subject || subject.trim().length < 3 || subject.trim().length > 200) {
+    errors.push({
+      field: "subject",
+      message: "Le sujet doit contenir entre 3 et 200 caractères",
+    });
+  }
 
-  body("phone")
-    .optional()
-    .trim()
-    .matches(/^[\d\s\+\-\(\)]+$/)
-    .withMessage("Numéro de téléphone invalide"),
+  // Validation message
+  if (!message || message.trim().length < 10 || message.trim().length > 2000) {
+    errors.push({
+      field: "message",
+      message: "Le message doit contenir entre 10 et 2000 caractères",
+    });
+  }
 
-  body("subject")
-    .trim()
-    .notEmpty()
-    .withMessage("Le sujet est requis")
-    .isLength({ min: 3, max: 200 })
-    .withMessage("Le sujet doit contenir entre 3 et 200 caractères"),
+  if (errors.length > 0) {
+    return res.status(400).json({
+      success: false,
+      message: "Erreurs de validation",
+      errors,
+    });
+  }
 
-  body("message")
-    .trim()
-    .notEmpty()
-    .withMessage("Le message est requis")
-    .isLength({ min: 10, max: 2000 })
-    .withMessage("Le message doit contenir entre 10 et 2000 caractères"),
-
-  validate,
-];
+  next();
+};
 
 module.exports = {
   validateRegister,
