@@ -3,8 +3,8 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const helmet = require("helmet");
 const rateLimit = require("express-rate-limit");
-const mongoSanitize = require("express-mongo-sanitize");
-const xss = require("xss-clean");
+//const mongoSanitize = require("express-mongo-sanitize");
+//const xss = require("xss-clean");
 require("dotenv").config();
 
 // Import des routes
@@ -31,10 +31,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Protection contre les injections NoSQL
-app.use(mongoSanitize());
+//app.use(mongoSanitize());
 
 // Protection contre les attaques XSS
-app.use(xss());
+//app.use(xss());
 
 // Rate limiting - Limite les requêtes
 const limiter = rateLimit({
