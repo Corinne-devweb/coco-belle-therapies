@@ -32,8 +32,6 @@ const userSchema = new mongoose.Schema({
   },
 });
 
-// PAS DE HOOK pre('save') !
-
 // Méthode pour comparer les mots de passe
 userSchema.methods.comparePassword = async function (candidatePassword) {
   return await bcrypt.compare(candidatePassword, this.password);

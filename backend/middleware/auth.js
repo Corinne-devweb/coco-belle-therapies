@@ -40,16 +40,4 @@ const protect = async (req, res, next) => {
   }
 };
 
-// Middleware pour vérifier si l'utilisateur est admin
-const isAdmin = (req, res, next) => {
-  if (req.user && req.user.role === "admin") {
-    next();
-  } else {
-    res.status(403).json({
-      success: false,
-      message: "Accès refusé - Droits administrateur requis",
-    });
-  }
-};
-
-module.exports = { protect, isAdmin };
+module.exports = { protect };
